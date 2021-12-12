@@ -26,3 +26,5 @@ hs_err_pid*
 .project
 .classpath
 target/classes/META-INF/*.*
+target/classes/META-INF/maven/com.howtodoinjava/opensource-examples/pom.properties
+target/classes/META-INF/maven/com.howtodoinjava/opensource-examples/pom.xml
