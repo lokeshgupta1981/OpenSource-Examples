@@ -25,4 +25,4 @@ hs_err_pid*
 .settings/org.eclipse.wst.common.project.facet.core.xml
 .project
 .classpath
-target/classes/META-INF/MANIFEST.MF
+target/classes/META-INF/*.*
