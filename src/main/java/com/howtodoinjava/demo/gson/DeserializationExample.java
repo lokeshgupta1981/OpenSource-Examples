@@ -2,12 +2,16 @@ package com.howtodoinjava.demo.gson;
 
 import java.time.LocalDate;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.howtodoinjava.demo.model.User;
 
 public class DeserializationExample {
   public static void main(final String[] args) {
+    Logger logger = LoggerFactory.getLogger(SerializationExample.class);
     
     String jsonString = """
       {  
@@ -28,6 +32,6 @@ public class DeserializationExample {
 
     User user = gson.fromJson(jsonString, User.class);
 
-    System.out.println(user);
+    logger.info("Parsed Object : " + user);
   }
 }

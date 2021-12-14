@@ -29,3 +29,5 @@ target/classes/META-INF/*.*
 target/classes/META-INF/maven/com.howtodoinjava/opensource-examples/pom.properties
 target/classes/META-INF/maven/com.howtodoinjava/opensource-examples/pom.xml
 .factorypath
+*.gz
+.metadata

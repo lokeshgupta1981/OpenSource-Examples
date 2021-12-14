@@ -7,6 +7,8 @@ public class Main {
   public static void main(final String[] args)
   {
       Logger logger = LoggerFactory.getLogger(Main.class);
-      logger.info("Hello World !!");
+      logger.debug("Debug Message Logged !!!");
+      logger.info("Info Message Logged !!!");
+      logger.error("Error Message Logged !!!", new NullPointerException("NullError"));
   }
 }
