@@ -2,6 +2,9 @@ package com.howtodoinjava.demo.lombok;
 
 import java.util.List;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
@@ -11,6 +14,7 @@ import lombok.ToString;
 @Builder(toBuilder = true)
 @Getter
 @ToString
+@JsonDeserialize(builder = Article.ArticleBuilder.class)
 public class Article {
   @NonNull
   private final Long id;
@@ -20,5 +24,9 @@ public class Article {
 
   public static ArticleBuilder builder(final Long id) {
     return new ArticleBuilder().id(id);
+  } 
+  
+  @JsonPOJOBuilder(withPrefix="")
+  public static class ArticleBuilder {
   }
 }
