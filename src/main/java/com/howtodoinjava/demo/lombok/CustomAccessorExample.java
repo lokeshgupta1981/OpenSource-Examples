@@ -2,9 +2,7 @@ package com.howtodoinjava.demo.lombok;
 
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 public class CustomAccessorExample {
 	public static void main(String[] args) {
