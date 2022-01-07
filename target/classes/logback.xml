@@ -1,6 +1,7 @@
 <configuration>
 	<property name="LOG_ROOT" value="c:/temp/logs" />
 	<property name="LOG_FILE" value="application" />
+	<property name="HTML_LOG_FILE" value="applicationLogs" />
 	
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
@@ -24,12 +25,34 @@
 		</encoder>
 	</appender>
 	
-	<logger name="com.howtodoinjava.app" level="INFO" additivity="false">
+	<appender name="HTML" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_ROOT}/${HTML_LOG_FILE}.html</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>${LOG_ROOT}/${HTML_LOG_FILE}-%d{yyyy-MM-dd}.%i.html.gz</fileNamePattern>
+			<!-- each archived file's size will be max 10MB -->
+			<maxFileSize>10MB</maxFileSize>    
+			<!-- 30 days to keep -->
+			<maxHistory>30</maxHistory>
+			<!-- total size of all archive files, if total size > 100GB, it will delete old archived file -->
+			 <totalSizeCap>100GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<charset>UTF-8</charset>
+			<layout class="ch.qos.logback.classic.html.HTMLLayout">
+				<pattern>%d{HH:mm:ss.SSS}%thread%level%logger%line%msg</pattern>
+			</layout>         
+		</encoder>
+	</appender> 
+	
+	<!-- <logger name="com.howtodoinjava.app" level="DEBUG" additivity="false">
         <appender-ref ref="FILE"/>
-    </logger>
+        <appender-ref ref="HTML"/>
+    </logger> -->
 
-	<root level="ERROR">
+	<root level="INFO">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
+		<appender-ref ref="HTML" />
 	</root>
 </configuration>
