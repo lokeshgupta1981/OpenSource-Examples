@@ -6,11 +6,10 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Jackson2Demo {
-	public static void main(String[] args) throws IOException {
+	public static void main(final String[] args) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
 
 		Article article = new Article(1L, "Test Title", Collections.singletonList("Test Tag"));
@@ -46,7 +45,7 @@ class Article {
 		super();
 	}
 
-	public Article(Long id, String title, List<String> tags) {
+	public Article(final Long id, final String title, final List<String> tags) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -57,7 +56,7 @@ class Article {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -65,7 +64,7 @@ class Article {
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(final String title) {
 		this.title = title;
 	}
 
@@ -73,7 +72,7 @@ class Article {
 		return tags;
 	}
 
-	public void setTags(List<String> tags) {
+	public void setTags(final List<String> tags) {
 		this.tags = tags;
 	}
 

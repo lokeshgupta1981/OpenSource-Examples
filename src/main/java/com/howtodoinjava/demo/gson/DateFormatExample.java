@@ -1,6 +1,5 @@
 package com.howtodoinjava.demo.gson;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -15,7 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 public class DateFormatExample {
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		Logger logger = LoggerFactory.getLogger(SerializationExample.class);
 
 	    User user = new User(1L, "lokesh", "gupta", new Date());
