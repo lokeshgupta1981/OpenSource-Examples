@@ -14,8 +14,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		//System.setProperty("flogger.backend_factory", "com.google.common.flogger.backend.log4j2.Log4j2BackendFactory#getInstance");
-
 		logger.atWarning().log("Warning message");
 		
 		Article a = Article.builder(1L).title("Test Article").tag("Data").build();
