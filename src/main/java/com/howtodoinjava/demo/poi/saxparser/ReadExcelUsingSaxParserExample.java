@@ -1,9 +1,6 @@
 package com.howtodoinjava.demo.poi.saxparser;
 
-import com.howtodoinjava.demo.poi.ReadExcelDemo;
-
 import java.io.File;
-import java.io.FileInputStream;
 import java.net.URL;
 
 public class ReadExcelUsingSaxParserExample {
