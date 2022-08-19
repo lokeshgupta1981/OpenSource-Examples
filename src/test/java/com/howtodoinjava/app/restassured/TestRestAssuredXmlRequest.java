@@ -37,7 +37,7 @@ public class TestRestAssuredXmlRequest {
     given()
         .body(xml)
         .contentType("application/xml")
-        .queryParam("access-token", "7c73b5c9a897be3fe0642ca6494f4664ee32a7acdb0bb889e6667748e3228375")
+        .queryParam("access-token", "xxxx")
         .when()
         .post("/users")
         .then()
