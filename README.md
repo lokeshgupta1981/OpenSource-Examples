@@ -6,3 +6,4 @@
 - [Logback](https://howtodoinjava.com/logback/logback-tutorial/)
 - [Jackson JSON](https://howtodoinjava.com/jackson/jackson-read-write-json/)
 - [Apache POI](https://howtodoinjava.com/java/library/readingwriting-excel-files-in-java-poi-tutorial/)
+- [REST-assured](https://howtodoinjava.com/java/library/rest-assured-tutorial/)
