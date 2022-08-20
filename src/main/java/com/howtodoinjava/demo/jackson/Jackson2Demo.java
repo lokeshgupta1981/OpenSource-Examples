@@ -7,6 +7,9 @@ import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 public class Jackson2Demo {
 	public static void main(final String[] args) throws IOException {
@@ -36,9 +39,14 @@ public class Jackson2Demo {
 	}
 }
 
+@JacksonXmlRootElement(localName = "article")
 class Article {
+	@JacksonXmlProperty(isAttribute = true)
 	private Long id;
 	private String title;
+
+	@JacksonXmlElementWrapper(localName = "tags")
+	@JacksonXmlProperty(localName = "tag")
 	private List<String> tags;
 
 	public Article() {
