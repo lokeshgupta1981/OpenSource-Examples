@@ -33,7 +33,7 @@ public class TestRestAssured {
         .when()
         .post("/users")
         .then()
-        .statusCode(201)
+        .statusCode(equalTo(201))
         .body("id", notNullValue())
         .body("name", equalTo("lokesh"))
         .body("email", equalTo("admin@howtodoinjava.com"))
@@ -128,35 +128,5 @@ public class TestRestAssured {
         .get("/users/25")
         .then()
         .statusCode(404);
-  }
-}
-
-
-class User {
-  private String name;
-  private String email;
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public User() {
-  }
-
-  public User(String name, String email) {
-    this.name = name;
-    this.email = email;
   }
 }

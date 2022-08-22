@@ -8,5 +8,6 @@
 - [Jackson XML](https://howtodoinjava.com/jackson/jackson-xml-conversions/)
 - [Apache POI](https://howtodoinjava.com/java/library/readingwriting-excel-files-in-java-poi-tutorial/)
 - [REST-assured](https://howtodoinjava.com/java/library/rest-assured-tutorial/)
+- [REST-assured HTTP POST and PUT Examples](https://howtodoinjava.com/java/library/rest-assured-http-post-and-put-examples/)
 
 
