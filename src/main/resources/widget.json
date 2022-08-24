@@ -1,0 +1,17 @@
+{
+  "widget": {
+    "debug": "on",
+    "window": {
+      "title": "Client Info",
+      "name": "client_info",
+      "width": 500,
+      "height": 500,
+      "padding": [10,10,10,50],
+      "locations" : [
+        { "name": "header", "display": "true" },
+        { "name": "footer", "display": "true" },
+        { "name": "sidebar", "display": "false" }
+      ]
+    }
+  }
+}

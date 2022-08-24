@@ -34,10 +34,10 @@ public class TestRestAssuredXmlRequest {
 
     System.out.println(xml);
 
-    given()
+    /*given()
         .body(xml)
         .contentType("application/xml")
-        .queryParam("access-token", "xxxx")
+        .queryParam("access-token", "xxxx") //PUT correct API key to execute
         .when()
         .post("/users")
         .then()
@@ -47,7 +47,7 @@ public class TestRestAssuredXmlRequest {
         .body("gender", equalTo("male"))
         .body("status", equalTo("active"))
         .body("email", equalTo("admin@howtodoinjava.com"))
-        .log().all();
+        .log().all();*/
   }
 }
 
