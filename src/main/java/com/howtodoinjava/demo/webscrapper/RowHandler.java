@@ -29,7 +29,7 @@ public class RowHandler extends SheetHandler {
         if (rowNumber > 1 && !rowValues.isEmpty()) {
             String url = rowValues.get("B");
             if(url != null && !url.trim().equals("")) {
-                ScappedEntity entity = new ScappedEntity();
+                UrlRecord entity = new UrlRecord();
                 entity.setRownum((int) rowNumber);
                 entity.setRootUrl(url.trim());
                 JobSubmitter.submitTask(entity);

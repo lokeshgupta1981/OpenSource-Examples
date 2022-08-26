@@ -1,6 +1,6 @@
 package com.howtodoinjava.demo.webscrapper;
 
-public class ScappedEntity {
+public class UrlRecord {
 
     private Integer rownum;
     private String rootUrl;
@@ -41,7 +41,7 @@ public class ScappedEntity {
 
     @Override
     public String toString() {
-        return "ScappedEntity{" +
+        return "UrlRecord{" +
             "rownum=" + rownum +
             ", rootUrl='" + rootUrl + '\'' +
             ", visitedUrl='" + visitedUrl + '\'' +

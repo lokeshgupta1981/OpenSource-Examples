@@ -9,7 +9,7 @@ import java.util.concurrent.*;
 
 public class WebScrappingApp {
 
-    public static BlockingQueue<ScappedEntity> processedRecords = new LinkedBlockingQueue<ScappedEntity>();
+    public static BlockingQueue<UrlRecord> processedRecords = new LinkedBlockingQueue<UrlRecord>();
     private static Random random = new Random();
     public static int rowCounter = 1;
 
@@ -34,11 +34,11 @@ public class WebScrappingApp {
             @Override
             public void run() {
                 if(processedRecords.size() > 0) {
-                    List<ScappedEntity> recordsToWrite = new ArrayList<>();
+                    List<UrlRecord> recordsToWrite = new ArrayList<>();
                     processedRecords.drainTo(recordsToWrite);
 
                     Map<Integer, Object[]> data = new HashMap<>();
-                    for(ScappedEntity entity : recordsToWrite) {
+                    for(UrlRecord entity : recordsToWrite) {
                         data.put(rowCounter++, new Object[] {entity.getVisitedUrl(), entity.getTitle()});
                     }
                     System.out.println("###########Writing "+data.size()+" records to excel file############################");

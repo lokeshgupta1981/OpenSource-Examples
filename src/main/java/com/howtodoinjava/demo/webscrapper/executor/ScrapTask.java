@@ -1,7 +1,7 @@
 package com.howtodoinjava.demo.webscrapper.executor;
 
 import com.howtodoinjava.demo.webscrapper.WebScrappingApp;
-import com.howtodoinjava.demo.webscrapper.ScappedEntity;
+import com.howtodoinjava.demo.webscrapper.UrlRecord;
 import io.restassured.RestAssured;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
@@ -10,23 +10,22 @@ import io.restassured.response.Response;
 import org.apache.http.params.CoreConnectionPNames;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import static io.restassured.RestAssured.given;
 
 public class ScrapTask implements Runnable {
-  public ScrapTask(ScappedEntity entity) {
+  public ScrapTask(UrlRecord entity) {
     this.entity = entity;
   }
 
-  private ScappedEntity entity;
+  private UrlRecord entity;
 
-  public ScappedEntity getEntity() {
+  public UrlRecord getEntity() {
     return entity;
   }
 
-  public void setEntity(ScappedEntity entity) {
+  public void setEntity(UrlRecord entity) {
     this.entity = entity;
   }
 
@@ -67,7 +66,7 @@ public class ScrapTask implements Runnable {
           if(visitedUrl.startsWith("/")) {
             String title = getTitle(rootUrl + visitedUrl);
 
-            ScappedEntity newEntity = new ScappedEntity();
+            UrlRecord newEntity = new UrlRecord();
             newEntity.setRownum(WebScrappingApp.rowCounter++);
             newEntity.setRootUrl(entity.getRootUrl());
             newEntity.setVisitedUrl(rootUrl + visitedUrl);

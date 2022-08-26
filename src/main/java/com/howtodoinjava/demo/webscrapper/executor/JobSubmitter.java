@@ -1,6 +1,6 @@
 package com.howtodoinjava.demo.webscrapper.executor;
 
-import com.howtodoinjava.demo.webscrapper.ScappedEntity;
+import com.howtodoinjava.demo.webscrapper.UrlRecord;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -32,7 +32,7 @@ public class JobSubmitter {
         executor.prestartAllCoreThreads();
     }
 
-    public static void submitTask(ScappedEntity entity) {
+    public static void submitTask(UrlRecord entity) {
         Future<?> f = executor.submit(new ScrapTask(entity));
         futures.add(f);
     }
