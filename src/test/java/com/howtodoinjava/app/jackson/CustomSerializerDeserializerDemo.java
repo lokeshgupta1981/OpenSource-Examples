@@ -1,14 +1,11 @@
-package com.howtodoinjava.app;
+package com.howtodoinjava.app.jackson;
 
 import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.node.IntNode;
-import com.fasterxml.jackson.databind.node.LongNode;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
