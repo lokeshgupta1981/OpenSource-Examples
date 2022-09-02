@@ -97,6 +97,11 @@ class RecordSerializer extends StdSerializer<Record> {
   }
 
   @Override
+  public boolean isEmpty(SerializerProvider provider, Record value) {
+    return super.isEmpty(provider, value);
+  }
+
+  @Override
   public void serialize(Record value, JsonGenerator gen,
                         SerializerProvider serializers) throws IOException {
 
