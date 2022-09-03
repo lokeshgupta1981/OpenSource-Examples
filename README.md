@@ -11,5 +11,6 @@
 - [REST-assured HTTP POST and PUT Examples](https://howtodoinjava.com/java/library/rest-assured-http-post-and-put-examples/)
 - [Sending XML Request with REST-assured](https://howtodoinjava.com/java/library/sending-xml-request-with-rest-assured/)
 - [Extracting JSON using JsonPath](https://howtodoinjava.com/java/library/jsonpath-tutorial/)
+- [Guide to JSONassert](https://howtodoinjava.com/java/library/jsonassert-tutorial/)
 
 
