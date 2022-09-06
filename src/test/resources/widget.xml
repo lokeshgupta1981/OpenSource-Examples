@@ -1,0 +1,5 @@
+<widget>
+    <id>1</id>
+    <name>test-widget</name>
+    <paddings>10px 10px 10px 50px</paddings>
+</widget>
