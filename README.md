@@ -12,5 +12,6 @@
 - [Sending XML Request with REST-assured](https://howtodoinjava.com/java/library/sending-xml-request-with-rest-assured/)
 - [Extracting JSON using JsonPath](https://howtodoinjava.com/java/library/jsonpath-tutorial/)
 - [Guide to JSONassert](https://howtodoinjava.com/java/library/jsonassert-tutorial/)
+- [XmlUnit Tutorial with examples](https://howtodoinjava.com/java/library/xmlunit-tutorial/)
 
 
