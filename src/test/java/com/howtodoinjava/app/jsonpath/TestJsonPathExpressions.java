@@ -30,40 +30,40 @@ public class TestJsonPathExpressions {
     }
   }
 
-  @Test
+  /*@Test
   public void testGetWidgetTitle_ThenSuccess(){
     String widgetTitle = JsonPath.read(json, "$.widget.window.title");
     Assertions.assertEquals("Client Info", widgetTitle);
-  }
+  }*/
 
-  @Test
+  /*@Test
   public void testGetTrueDisplayLocations_ThenSuccess(){
     List<String> locations = JsonPath
         .read(json, "$.widget.window.locations[?(@.display == 'true')].name");
     Assertions.assertTrue(List.of("header", "footer").containsAll(locations));
-  }
+  }*/
 
-  @Test
+  /*@Test
   public void testGetAllDisplayLocations_ThenSuccess(){
     List<String> locations = JsonPath
         .read(json, "$.widget.window.locations[*].name");
     Assertions.assertTrue(List.of("header", "footer", "sidebar").containsAll(locations));
-  }
+  }*/
 
-  @Test
+  /*@Test
   public void testFirstDisplayLocation_ThenSuccess(){
     List<String> locations = JsonPath
         .read(json, "$.widget.window.locations[0,1].name");
     Assertions.assertTrue(List.of("header", "footer").containsAll(locations));
-  }
+  }*/
 
-  @Test
+  /*@Test
   public void testLargestPadding_ThenSuccess(){
     Double largestPadding = JsonPath.read(json, "$.widget.window.padding.max()");
     Assertions.assertEquals(50, largestPadding);
-  }
+  }*/
 
-  @Test
+  /*@Test
   public void testGetTrueDisplayLocationsWithPredicate_ThenSuccess(){
 
     Predicate displayEnabled = new Predicate() {
@@ -75,9 +75,9 @@ public class TestJsonPathExpressions {
 
     List<String> locations = JsonPath.read(json, "$.widget.window.locations[?].name", displayEnabled);
     Assertions.assertTrue(List.of("header", "footer").containsAll(locations));
-  }
+  }*/
 
-  @Test
+  /*@Test
   public void testConfiguration_ThenSuccess(){
 
     Configuration configuration = Configuration
@@ -89,5 +89,5 @@ public class TestJsonPathExpressions {
         .using(configuration)
         .parse(json).read("$.widget.window.locations[0].name");
     Assertions.assertTrue(List.of("header").containsAll(locations));
-  }
+  }*/
 }
