@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+  <Properties>
+    <Property name="LOG_PATTERN">[%-5level] %d{yyyy-MM-dd'T'HH:mm:ss.SSS} %c{1} - %msg%n</Property>
+    <Property name="LOG_DIR">c:/temp/logs</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="console" target="SYSTEM_OUT" follow="true">
+      <MarkerFilter marker="USER_MGMT" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="${LOG_PATTERN}"/>
+    </Console>
+
+    <RollingFile
+      name="transactionLogs"
+      fileName="${LOG_DIR}/transactions.log"
+      filePattern="${LOG_DIR}/transactions.%d{dd-MMM}.log.gz"
+      ignoreExceptions="false">
+      <MarkerFilter marker="TRANSACTION" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout>
+        <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1"/>
+      </Policies>
+      <DefaultRolloverStrategy max="5" />
+    </RollingFile>
+
+    <RollingFile
+      name="userMgmtLogs"
+      fileName="${LOG_DIR}/user-management.log"
+      filePattern="${LOG_DIR}/user-management.%d{dd-MMM}.log.gz"
+      ignoreExceptions="false">
+      <MarkerFilter marker="USER_MGMT" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout>
+        <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1"/>
+      </Policies>
+      <DefaultRolloverStrategy max="5" />
+    </RollingFile>
+  </Appenders>
+
+
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="transactionLogs"/>
+      <AppenderRef ref="userMgmtLogs"/>
+    </Root>
+  </Loggers>
+</Configuration>
