@@ -5,9 +5,13 @@
     <Property name="LOG_DIR">c:/temp/logs</Property>
   </Properties>
 
+  <DynamicThresholdFilter key="USER_ROLE" defaultThreshold="ERROR" onMatch="ACCEPT" onMismatch="DENY">
+    <KeyValuePair key="ADMIN" value="INFO"/>
+    <KeyValuePair key="GUEST" value="DEBUG"/>
+  </DynamicThresholdFilter>
+
   <Appenders>
-    <Console name="console" target="SYSTEM_OUT" follow="true">
-      <MarkerFilter marker="USER_MGMT" onMatch="ACCEPT" onMismatch="DENY"/>
+    <Console name="console" target="SYSTEM_OUT">
       <PatternLayout pattern="${LOG_PATTERN}"/>
     </Console>
 
@@ -23,7 +27,7 @@
       <Policies>
         <TimeBasedTriggeringPolicy interval="1"/>
       </Policies>
-      <DefaultRolloverStrategy max="5" />
+      <DefaultRolloverStrategy max="5"/>
     </RollingFile>
 
     <RollingFile
@@ -38,13 +42,14 @@
       <Policies>
         <TimeBasedTriggeringPolicy interval="1"/>
       </Policies>
-      <DefaultRolloverStrategy max="5" />
+      <DefaultRolloverStrategy max="5"/>
     </RollingFile>
   </Appenders>
 
 
   <Loggers>
-    <Root level="info">
+    <Root level="INFO">
+      <AppenderRef ref="console"/>
       <AppenderRef ref="transactionLogs"/>
       <AppenderRef ref="userMgmtLogs"/>
     </Root>
