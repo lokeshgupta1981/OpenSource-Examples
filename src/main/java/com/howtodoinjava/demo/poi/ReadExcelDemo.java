@@ -3,6 +3,7 @@ package com.howtodoinjava.demo.poi;
 import com.howtodoinjava.demo.jackson.Jackson2Demo;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.util.IOUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -17,8 +18,8 @@ public class ReadExcelDemo
 	{
 		try
 		{
-			URL url = ReadExcelDemo.class.getClassLoader().getResource("howtodoinjava_demo.xlsx");
-			FileInputStream file = new FileInputStream(url.getFile());
+			FileInputStream file = new FileInputStream("c:/temp/fastexcel-demo.xlsx");
+			IOUtils.setByteArrayMaxOverride(Integer.MAX_VALUE);
 
 			//Create Workbook instance holding reference to .xlsx file
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
