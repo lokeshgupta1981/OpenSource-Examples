@@ -1,5 +1,6 @@
 package com.howtodoinjava.demo.gson;
 
+import com.howtodoinjava.demo.gson.adapters.LocalDateTypeAdapter;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -21,7 +22,7 @@ public class SerializationExample {
 
     Gson gson = new GsonBuilder()
       .setPrettyPrinting()
-      .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+      .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter())
       .create();
 
     String jsonString = gson.toJson(user);

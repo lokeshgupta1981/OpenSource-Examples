@@ -1,4 +1,4 @@
-package com.howtodoinjava.demo.gson;
+package com.howtodoinjava.demo.gson.adapters;
 
 import java.lang.reflect.Type;
 import java.time.LocalDate;
@@ -12,19 +12,20 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-public class LocalDateAdapter
-  implements JsonSerializer<LocalDate>, JsonDeserializer<LocalDate> {
+public class LocalDateTypeAdapter
+    implements JsonSerializer<LocalDate>, JsonDeserializer<LocalDate> {
+
+  private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
   @Override
   public JsonElement serialize(final LocalDate date, final Type typeOfSrc,
-    final JsonSerializationContext context) {
-    return new JsonPrimitive(date.format(DateTimeFormatter.ISO_LOCAL_DATE)); // "yyyy-MM-dd"
+      final JsonSerializationContext context) {
+    return new JsonPrimitive(date.format(formatter));
   }
 
   @Override
   public LocalDate deserialize(final JsonElement json, final Type typeOfT,
-    final JsonDeserializationContext context) throws JsonParseException {
-    return LocalDate.parse(json.getAsString(),
-      DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+      final JsonDeserializationContext context) throws JsonParseException {
+    return LocalDate.parse(json.getAsString(), formatter);
   }
 }

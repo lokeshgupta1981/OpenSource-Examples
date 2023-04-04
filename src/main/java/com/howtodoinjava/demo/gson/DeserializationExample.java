@@ -1,5 +1,6 @@
 package com.howtodoinjava.demo.gson;
 
+import com.howtodoinjava.demo.gson.adapters.LocalDateTypeAdapter;
 import java.time.LocalDate;
 
 import org.slf4j.Logger;
@@ -27,7 +28,7 @@ public class DeserializationExample {
       }""";
     
     Gson gson = new GsonBuilder()
-      .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+      .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter())
       .create();
 
     User user = gson.fromJson(jsonString, User.class);
