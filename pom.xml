@@ -14,12 +14,13 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
     <junit.jupiter.version>5.9.2</junit.jupiter.version>
     <junit.platform.version>1.9.0</junit.platform.version>
     <log4j2.version>2.19.0</log4j2.version>
     <jackson.version>2.14.2</jackson.version>
+    <lucene.version>9.10.0</lucene.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -101,7 +102,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
+      <version>1.18.32</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -273,6 +274,22 @@
       <groupId>org.dhatim</groupId>
       <artifactId>fastexcel-reader</artifactId>
       <version>0.15.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-core</artifactId>
+      <version>${lucene.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-analysis-common</artifactId>
+      <version>${lucene.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-queryparser</artifactId>
+      <version>${lucene.version}</version>
     </dependency>
   </dependencies>
   <build>
