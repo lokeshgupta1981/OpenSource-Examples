@@ -32,3 +32,7 @@ target/classes/META-INF/maven/com.howtodoinjava/opensource-examples/pom.xml
 *.gz
 .metadata
 /target/*.*
+/target/
+
+.idea
+*.lock
