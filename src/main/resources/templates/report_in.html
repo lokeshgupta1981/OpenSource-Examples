@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .invoice-container {
+            max-width: 100%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: top;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .invoice-header h1 {
+            color: #007BFF;
+            margin: 0;
+        }
+        .invoice-details {
+            margin-bottom: 20px;
+        }
+        .invoice-details p {
+            margin: 5px 0;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        tfoot td {
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="invoice-header">
+            <h1>Invoice</h1>
+        </div>
+        <div class="invoice-details">
+            <p><strong>Invoice #: </strong>INV-12345</p>
+            <p><strong>Date: </strong>2024-12-05</p>
+            <p><strong>Due Date: </strong>2024-12-12</p>
+            <p><strong>Bill To: </strong>John Doe</p>
+            <p><strong>Address: </strong>123 Main Street, Springfield</p>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Web Development Services</td>
+                        <td>10</td>
+                        <td>$50.00</td>
+                        <td>$500.00</td>
+                    </tr>
+                    <tr>
+                        <td>SEO Optimization</td>
+                        <td>5</td>
+                        <td>$100.00</td>
+                        <td>$500.00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Subtotal</td>
+                        <td>$1,000.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Tax (10%)</td>
+                        <td>$100.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td>$1,100.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <p><strong>Notes: </strong>Payment is due within 7 days. Late payments may incur additional charges.</p>
+        <div class="footer">
+            <p>Thank you for your business!</p>
+        </div>
+    </div>
+</body>
+</html>

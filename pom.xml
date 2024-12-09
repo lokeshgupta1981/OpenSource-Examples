@@ -19,6 +19,7 @@
     <log4j2.version>2.19.0</log4j2.version>
     <jackson.version>2.14.2</jackson.version>
     <lucene.version>9.10.0</lucene.version>
+    <openhtml.version>1.0.10</openhtml.version>
   </properties>
 
   <dependencyManagement>
@@ -294,6 +295,34 @@
       <groupId>org.apache.lucene</groupId>
       <artifactId>lucene-highlighter</artifactId>
       <version>${lucene.version}</version>
+    </dependency>
+    <dependency>
+      <!-- ALWAYS required, usually included transitively. -->
+      <groupId>com.openhtmltopdf</groupId>
+      <artifactId>openhtmltopdf-core</artifactId>
+      <version>${openhtml.version}</version>
+    </dependency>
+    <dependency>
+      <!-- Required for PDF output. -->
+      <groupId>com.openhtmltopdf</groupId>
+      <artifactId>openhtmltopdf-pdfbox</artifactId>
+      <version>${openhtml.version}</version>
+    </dependency>
+    <dependency>
+      <!-- Required for image output only. -->
+      <groupId>com.openhtmltopdf</groupId>
+      <artifactId>openhtmltopdf-java2d</artifactId>
+      <version>${openhtml.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.31</version>
+    </dependency>
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf</artifactId>
+      <version>3.1.1.RELEASE</version>
     </dependency>
   </dependencies>
   <build>
