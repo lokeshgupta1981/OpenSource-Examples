@@ -1,0 +1,19 @@
+<configuration>
+  <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/library.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <!-- a new archive every day, and whenever the file reaches maxFileSize -->
+      <fileNamePattern>logs/library-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+      <maxFileSize>1KB</maxFileSize>      <!-- use 10MB or more in real applications -->
+      <maxHistory>30</maxHistory>         <!-- keep 30 days of archives -->
+      <totalSizeCap>1GB</totalSizeCap>    <!-- delete the oldest archives above 1GB -->
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="ROLLING"/>
+  </root>
+</configuration>

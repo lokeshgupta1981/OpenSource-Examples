@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <!-- DEBUG and INFO go to System.out -->
+    <Console name="stdout" target="SYSTEM_OUT">
+      <ThresholdFilter level="warn" onMatch="DENY" onMismatch="ACCEPT"/>
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{1} - %msg%n"/>
+    </Console>
+    <!-- WARN, ERROR and FATAL go to System.err -->
+    <Console name="stderr" target="SYSTEM_ERR">
+      <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{1} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="debug">
+      <AppenderRef ref="stdout"/>
+      <AppenderRef ref="stderr"/>
+    </Root>
+  </Loggers>
+</Configuration>

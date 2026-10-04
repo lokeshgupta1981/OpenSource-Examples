@@ -1,0 +1,24 @@
+<configuration>
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <condition class="ch.qos.logback.core.boolex.PropertyEqualityCondition">
+    <key>APP_ENV</key>
+    <value>prod</value>
+  </condition>
+  <if>
+    <then>
+      <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+      </root>
+    </then>
+    <else>
+      <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+      </root>
+    </else>
+  </if>
+</configuration>
