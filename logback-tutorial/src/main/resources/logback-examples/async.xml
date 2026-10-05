@@ -1,0 +1,19 @@
+<configuration>
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <file>logs/async.log</file>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+    <queueSize>1024</queueSize>                   <!-- default 256 -->
+    <discardingThreshold>0</discardingThreshold>  <!-- 0 = never drop INFO and lower -->
+    <neverBlock>false</neverBlock>                <!-- wait when the queue is full -->
+    <appender-ref ref="FILE"/>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="ASYNC"/>
+  </root>
+</configuration>

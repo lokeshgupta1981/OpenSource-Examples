@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <!-- Needs the log4j-layout-template-json dependency -->
+    <Console name="console" target="SYSTEM_OUT">
+      <JsonTemplateLayout eventTemplateUri="classpath:EcsLayout.json"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="console"/>
+    </Root>
+  </Loggers>
+</Configuration>
