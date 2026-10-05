@@ -1,103 +1,82 @@
 package com.howtodoinjava.demo.poi;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Iterator;
-
-import com.howtodoinjava.demo.jackson.Jackson2Demo;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellValue;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ExcelFormulaDemo
-{
-	static URL url = ExcelFormulaDemo.class.getClassLoader().getResource("formulaDemo.xlsx");
-	public static void main(String[] args) 
-	{
-		XSSFWorkbook workbook = new XSSFWorkbook();
-	    XSSFSheet sheet = workbook.createSheet("Calculate Simple Interest");
-	 
-	    Row header = sheet.createRow(0);
-	    header.createCell(0).setCellValue("Pricipal");
-	    header.createCell(1).setCellValue("RoI");
-	    header.createCell(2).setCellValue("Time");
-	    header.createCell(3).setCellValue("Interest (P r t)");
-	     
-	    Row dataRow = sheet.createRow(1);
-	    dataRow.createCell(0).setCellValue(14500d);
-	    dataRow.createCell(1).setCellValue(9.25);
-	    dataRow.createCell(2).setCellValue(3d);
-	    dataRow.createCell(3).setCellFormula("A2*B2*C2");
-	     
-	    try {
-				URL url = Jackson2Demo.class.getClassLoader().getResource("formulaDemo.xlsx");
-	        FileOutputStream out =  new FileOutputStream(url.getFile());
-	        workbook.write(out);
-	        out.close();
-	        System.out.println("Excel written successfully..");
-	        
-	        readSheetWithFormula();
-	         
-	    } catch (FileNotFoundException e) {
-	        e.printStackTrace();
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
-	
-	public static void readSheetWithFormula()
-	{
-		try
-		{
-			FileInputStream file = new FileInputStream(url.getFile());
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-			//Create Workbook instance holding reference to .xlsx file
-			XSSFWorkbook workbook = new XSSFWorkbook(file);
+/**
+ * Adds a formula cell to formulaDemo.xlsx and evaluates it when reading.
+ */
+public class ExcelFormulaDemo {
 
-			FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
-			
-			//Get first/desired sheet from the workbook
-			XSSFSheet sheet = workbook.getSheetAt(0);
+  public static void main(String[] args) throws IOException {
+    Path file = Path.of("formulaDemo.xlsx");
+    writeSheetWithFormula(file);
+    readSheetWithFormula(file.toFile());
+  }
 
-			//Iterate through each rows one by one
-			Iterator<Row> rowIterator = sheet.iterator();
-			while (rowIterator.hasNext()) 
-			{
-				Row row = rowIterator.next();
-				//For each row, iterate through all the columns
-				Iterator<Cell> cellIterator = row.cellIterator();
-				
-				while (cellIterator.hasNext()) 
-				{
-					Cell cell = cellIterator.next();
-					//If it is formula cell, it will be evaluated otherwise no change will happen
-					switch (evaluator.evaluateInCell(cell).getCellType()) 
-					{
+  static void writeSheetWithFormula(Path file) throws IOException {
+    try (Workbook workbook = new XSSFWorkbook();
+         OutputStream out = Files.newOutputStream(file)) {
 
-						case NUMERIC:
-							System.out.print(cell.getNumericCellValue() + "\t\t");
-							break;
-						case STRING:
-							System.out.print(cell.getStringCellValue() + "\t\t");
-							break;
-						case FORMULA:
-							//Not again
-							break;
-					}
-				}
-				System.out.println("");
-			}
-			file.close();
-		} 
-		catch (Exception e) 
-		{
-			e.printStackTrace();
-		}
-	}
+      Sheet sheet = workbook.createSheet("Calculate Simple Interest");
+
+      Row header = sheet.createRow(0);
+      header.createCell(0).setCellValue("Principal");
+      header.createCell(1).setCellValue("Rate (%)");
+      header.createCell(2).setCellValue("Years");
+      header.createCell(3).setCellValue("Interest (P*R*T/100)");
+
+      Row dataRow = sheet.createRow(1);
+      dataRow.createCell(0).setCellValue(14500d);
+      dataRow.createCell(1).setCellValue(9.25);
+      dataRow.createCell(2).setCellValue(3d);
+      dataRow.createCell(3).setCellFormula("A2*B2*C2/100");
+
+      workbook.write(out);
+    }
+    System.out.println("Excel with formula cells written successfully");
+  }
+
+  static void readSheetWithFormula(File file) throws IOException {
+    try (Workbook workbook = WorkbookFactory.create(file, null, true)) {
+      Sheet sheet = workbook.getSheetAt(0);
+      Cell interest = sheet.getRow(1).getCell(3);
+
+      String formula = interest.getCellFormula();
+      double cached = interest.getNumericCellValue();
+
+      FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
+      CellValue result = evaluator.evaluate(interest);
+
+      System.out.println("formula = " + formula);
+      System.out.println("cached value without evaluation = " + cached);
+      System.out.println("evaluated type = " + result.getCellType() + ", value = " + result.getNumberValue());
+
+      // Print the whole sheet; evaluate() also returns the value of non-formula cells
+      for (Row row : sheet) {
+        for (Cell cell : row) {
+          CellValue value = evaluator.evaluate(cell);
+          String text = switch (value.getCellType()) {
+            case NUMERIC -> String.valueOf(value.getNumberValue());
+            case STRING -> value.getStringValue();
+            default -> "";
+          };
+          System.out.print(text + "\t\t");
+        }
+        System.out.println();
+      }
+    }
+  }
 }

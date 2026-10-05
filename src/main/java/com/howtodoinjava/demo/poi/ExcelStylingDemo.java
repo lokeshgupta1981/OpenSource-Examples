@@ -1,11 +1,13 @@
 package com.howtodoinjava.demo.poi;
 
-import java.io.FileOutputStream;
-import java.net.URL;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-import org.apache.poi.hssf.record.CFRuleBase.ComparisonOperator;
 import org.apache.poi.ss.usermodel.BuiltinFormats;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.ComparisonOperator;
 import org.apache.poi.ss.usermodel.ConditionalFormattingRule;
 import org.apache.poi.ss.usermodel.FontFormatting;
 import org.apache.poi.ss.usermodel.IndexedColors;
@@ -17,25 +19,25 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelStylingDemo {
-  public static void main(String[] args) throws Exception {
-    Workbook wb = new XSSFWorkbook();
+  public static void main(String[] args) throws IOException {
+    Path file = Path.of("styleDemo.xlsx");
 
-    basedOnValue(wb.createSheet("Value Based formatting"));
-    formatDuplicates(wb.createSheet("Duplicates formatting"));
-    shadeAlt(wb.createSheet("Alternate rows"));
-    expiryInNext30Days(wb.createSheet("Soon Expired Payments"));
+    try (Workbook wb = new XSSFWorkbook();
+         OutputStream out = Files.newOutputStream(file)) {
 
-    // Write the output to a file
-    URL url = ReadExcelDemo.class.getClassLoader().getResource(
-        "styleDemo.xlsx");
-    FileOutputStream out = new FileOutputStream(url.getFile());
-    wb.write(out);
-    out.close();
+      basedOnValue(wb.createSheet("Value Based formatting"));
+      formatDuplicates(wb.createSheet("Duplicates formatting"));
+      shadeAlt(wb.createSheet("Alternate rows"));
+      expiryInNext30Days(wb.createSheet("Soon Expired Payments"));
+
+      wb.write(out);
+    }
+    System.out.println(file + " written");
   }
 
   //Cell value is in between a certain range
   static void basedOnValue(Sheet sheet) {
-    //Creating some random values
+    //Creating some sample values
     sheet.createRow(0).createCell(0).setCellValue(84);
     sheet.createRow(1).createCell(0).setCellValue(74);
     sheet.createRow(2).createCell(0).setCellValue(50);
@@ -85,7 +87,7 @@ public class ExcelStylingDemo {
 
     SheetConditionalFormatting sheetCF = sheet.getSheetConditionalFormatting();
 
-    // Condition 1: Formula Is   =A2=A1   (White Font)
+    // Condition 1: Formula Is   =COUNTIF($A$2:$A$11,A2)>1   (Blue Font)
     ConditionalFormattingRule rule1 =
         sheetCF.createConditionalFormattingRule("COUNTIF($A$2:$A$11,A2)>1");
     FontFormatting font = rule1.createFontFormatting();
@@ -105,7 +107,7 @@ public class ExcelStylingDemo {
   static void shadeAlt(Sheet sheet) {
     SheetConditionalFormatting sheetCF = sheet.getSheetConditionalFormatting();
 
-    // Condition 1: Formula Is   =A2=A1   (White Font)
+    // Condition 1: Formula Is   =MOD(ROW(),2)   (Light Green Fill)
     ConditionalFormattingRule rule1 =
         sheetCF.createConditionalFormattingRule("MOD(ROW(),2)");
     PatternFormatting fill1 = rule1.createPatternFormatting();
@@ -136,7 +138,7 @@ public class ExcelStylingDemo {
 
     SheetConditionalFormatting sheetCF = sheet.getSheetConditionalFormatting();
 
-    // Condition 1: Formula Is   =A2=A1   (White Font)
+    // Condition 1: Formula Is   =AND(A2-TODAY()>=0,A2-TODAY()<=30)   (Blue Font)
     ConditionalFormattingRule rule1 =
         sheetCF.createConditionalFormattingRule("AND(A2-TODAY()>=0,A2-TODAY()" +
             "<=30)");
