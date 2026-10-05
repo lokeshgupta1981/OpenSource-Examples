@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <!-- A custom level between WARN (300) and INFO (400) -->
+  <CustomLevels>
+    <CustomLevel name="NOTICE" intLevel="350"/>
+  </CustomLevels>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%-5level %c{1} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <!-- Our own recipes package prints DEBUG and above -->
+    <Logger name="com.howtodoinjava.levels.recipes" level="DEBUG"/>
+    <!-- Everything else prints WARN and above -->
+    <Root level="WARN">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>

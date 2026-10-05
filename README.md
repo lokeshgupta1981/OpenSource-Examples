@@ -2,7 +2,9 @@
 
 - [GSON Tutorial](https://howtodoinjava.com/gson/google-gson-tutorial/)
 - [Lo4j2 with SLF4J](https://howtodoinjava.com/log4j2/log4j2-with-slf4j/)
+- [Log Levels Explained with Log4j 2](https://howtodoinjava.com/log4j2/logging-levels/) ([log4j2-logging-levels](log4j2-logging-levels))
 - [Lombok](https://howtodoinjava.com/lombok/)
+- [Lombok NoSuchFieldError: JCTree$JCImport qualid](https://howtodoinjava.com/lombok/lombok-nosuchfielderror-error/) ([lombok-nosuchfielderror](lombok-nosuchfielderror))
 - [Logback](https://howtodoinjava.com/logback/logback-tutorial/)
 - [Jackson JSON](https://howtodoinjava.com/jackson/jackson-read-write-json/)
 - [Jackson XML](https://howtodoinjava.com/jackson/jackson-xml-conversions/)
@@ -14,6 +16,7 @@
 - [Guide to JSONassert](https://howtodoinjava.com/java/library/jsonassert-tutorial/)
 - [XmlUnit Tutorial with examples](https://howtodoinjava.com/java/library/xmlunit-tutorial/)
 - [XmlAssert – AssertJ Assertions for XmlUnit](https://howtodoinjava.com/java/library/xmlassert-assertions/)
+- [Maven Parent POM and Child POM Example](https://howtodoinjava.com/maven/maven-parent-child-pom-example/) ([maven-parent-child-pom](maven-parent-child-pom))
 - [OpenCSV – Read and Write CSV Files in Java](https://howtodoinjava.com/java/library/parse-read-write-csv-opencsv/)
 
 
