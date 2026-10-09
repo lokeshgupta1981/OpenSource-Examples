@@ -20,3 +20,6 @@
 - [OpenCSV – Read and Write CSV Files in Java](https://howtodoinjava.com/java/library/parse-read-write-csv-opencsv/)
 - [What Is Data Analytics and How Can You Get Started?](https://howtodoinjava.com/python/what-is-data-analytics/) ([data-analytics-getting-started](data-analytics-getting-started))
 - [LLM Terms Every Java Developer Should Know](https://howtodoinjava.com/ai/llm-terms-for-java-developers/) ([llm-terms](llm-terms))
+- [Model Context Protocol (MCP) Explained for Java Developers](https://howtodoinjava.com/ai/model-context-protocol-mcp-java/) ([mcp-explained](mcp-explained))
+- [LLM Token Costs: Estimate and Reduce Them in Java Apps](https://howtodoinjava.com/ai/llm-token-costs-java/) ([llm-token-costs](llm-token-costs))
+- [Best Machine Learning Libraries for Java in 2026](https://howtodoinjava.com/ai/java-machine-learning-libraries/) ([java-ml-libraries](java-ml-libraries))
