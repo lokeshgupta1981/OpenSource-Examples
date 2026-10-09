@@ -13,7 +13,7 @@ Run:
 
 Files:
 
-- bakery_sales.csv: 14 orders, including one duplicated row (order 7) and one row without a quantity (order 10)
-- queries.sql: cleaning, revenue per product and revenue per month in SQL
+- bakery_sales.csv: 14 orders, including one duplicated row (order 7) and one row without a quantity (order 9)
+- queries.sql: cleaning, revenue per product, revenue per month and cakes per month in SQL
 - run_sql.py: runs queries.sql with DuckDB
 - analysis.py: the same steps with pandas
