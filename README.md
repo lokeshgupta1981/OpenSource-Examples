@@ -19,3 +19,4 @@
 - [Maven Parent POM and Child POM Example](https://howtodoinjava.com/maven/maven-parent-child-pom-example/) ([maven-parent-child-pom](maven-parent-child-pom))
 - [OpenCSV – Read and Write CSV Files in Java](https://howtodoinjava.com/java/library/parse-read-write-csv-opencsv/)
 - [What Is Data Analytics and How Can You Get Started?](https://howtodoinjava.com/python/what-is-data-analytics/) ([data-analytics-getting-started](data-analytics-getting-started))
+- [LLM Terms Every Java Developer Should Know](https://howtodoinjava.com/ai/llm-terms-for-java-developers/) ([llm-terms](llm-terms))
