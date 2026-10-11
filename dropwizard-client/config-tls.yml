@@ -1,0 +1,34 @@
+# Same app over HTTPS. The inventory URL uses https, and the clients trust the demo certificate.
+# Create the demo key store and trust store with the keytool commands in README.md.
+server:
+  applicationConnectors:
+    - type: https
+      bindHost: 127.0.0.1
+      port: 18092
+      keyStorePath: tls/inventory-server.p12
+      keyStorePassword: changeit
+      keyStoreType: PKCS12
+  adminConnectors:
+    - type: http
+      bindHost: 127.0.0.1
+      port: 18093
+
+inventoryUrl: https://localhost:18092
+
+jerseyClient:
+  timeout: 2s
+  connectionTimeout: 500ms
+  tls:
+    protocol: TLSv1.3
+    trustStorePath: tls/client-truststore.p12
+    trustStorePassword: changeit
+    trustStoreType: PKCS12
+    verifyHostname: true
+
+httpClient:
+  timeout: 2s
+  tls:
+    protocol: TLSv1.3
+    trustStorePath: tls/client-truststore.p12
+    trustStorePassword: changeit
+    trustStoreType: PKCS12

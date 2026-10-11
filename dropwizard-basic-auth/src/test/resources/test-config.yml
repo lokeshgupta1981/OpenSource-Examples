@@ -1,0 +1,24 @@
+server:
+  applicationConnectors:
+    - type: http
+      bindHost: 127.0.0.1
+      port: 0
+  adminConnectors:
+    - type: http
+      bindHost: 127.0.0.1
+      port: 0
+
+# Demo users. Only BCrypt hashes are stored here; create one with: java -jar app.jar hash-password
+# Demo passwords for the curl examples: lokesh / user-demo-pass, alex / admin-demo-pass
+users:
+  - username: lokesh
+    passwordHash: "$2a$12$TFyDsjEsxGV.rboyCbDmkObjPOblpAcuPYuyUhK4Iy2SbiR9Rnjz6"
+    roles: [USER]
+  - username: alex
+    passwordHash: "$2a$12$Z6h05J6r3wL7vyU0xIP8AOQCYXqLihBsbr8MvnnA9QXYZr1a2598y"
+    roles: [USER, ADMIN]
+
+authenticationCachePolicy: maximumSize=1000, expireAfterAccess=10m
+
+logging:
+  level: INFO

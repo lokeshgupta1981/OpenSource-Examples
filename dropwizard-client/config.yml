@@ -1,0 +1,40 @@
+server:
+  applicationConnectors:
+    - type: http
+      bindHost: 127.0.0.1
+      port: 18090
+  adminConnectors:
+    - type: http
+      bindHost: 127.0.0.1
+      port: 18091
+
+# Base URL of the inventory service. The demo app serves /inventory itself.
+inventoryUrl: http://localhost:18090
+
+jerseyClient:
+  timeout: 2s
+  connectionTimeout: 500ms
+  connectionRequestTimeout: 500ms
+  timeToLive: 1h
+  keepAlive: 30s
+  maxConnections: 64
+  maxConnectionsPerRoute: 16
+  retries: 1
+  userAgent: order-service
+  gzipEnabled: true
+  gzipEnabledForRequests: false
+  minThreads: 1
+  maxThreads: 32
+  workQueueSize: 8
+
+httpClient:
+  timeout: 2s
+  connectionTimeout: 500ms
+  keepAlive: 30s
+  maxConnections: 32
+  maxConnectionsPerRoute: 8
+  retries: 0
+  userAgent: order-service-httpclient
+
+logging:
+  level: INFO

@@ -1,0 +1,34 @@
+paymentGatewayUrl: http://localhost:8080/fake-gateway/status
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+      bindHost: 127.0.0.1
+  adminConnectors:
+    - type: http
+      port: 8081
+      bindHost: 127.0.0.1
+
+health:
+  delayedShutdownHandlerEnabled: true
+  shutdownWaitPeriod: 5s
+  healthCheckUrlPaths: ["/health-check"]
+  healthChecks:
+    - name: deadlocks
+      type: alive
+      critical: true
+    - name: database
+      type: ready
+      critical: true
+      schedule:
+        checkInterval: 5s
+        downtimeInterval: 2s
+        failureAttempts: 1
+        successAttempts: 1
+    - name: payment-gateway
+      type: ready
+      critical: false
+      schedule:
+        checkInterval: 10s
+        downtimeInterval: 5s

@@ -1,0 +1,18 @@
+server:
+  applicationConnectors:
+    - type: http
+      bindHost: 127.0.0.1
+      port: 0
+  adminConnectors:
+    - type: http
+      bindHost: 127.0.0.1
+      port: 0
+
+inventoryUrl: http://localhost:1
+
+jerseyClient:
+  timeout: 2s
+  retries: 0
+
+httpClient:
+  timeout: 2s

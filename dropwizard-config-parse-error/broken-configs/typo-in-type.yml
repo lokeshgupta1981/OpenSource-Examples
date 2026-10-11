@@ -1,0 +1,5 @@
+server:
+  applicationConnectors:
+    - type: htttp
+      port: 8080
+      bindHost: 127.0.0.1

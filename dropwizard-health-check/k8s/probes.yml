@@ -1,0 +1,13 @@
+# Probe section of the order-service container in a Kubernetes Deployment
+livenessProbe:
+  httpGet:
+    path: /health-check?type=alive
+    port: 8080
+  periodSeconds: 10
+  failureThreshold: 3
+readinessProbe:
+  httpGet:
+    path: /health-check
+    port: 8080
+  periodSeconds: 5
+  failureThreshold: 2
