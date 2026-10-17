@@ -28,3 +28,4 @@
 - [Dropwizard Client: JerseyClientBuilder and HttpClient Examples](https://howtodoinjava.com/dropwizard/client-configuration-and-examples/) ([dropwizard-client](dropwizard-client))
 - [Dropwizard Basic Auth Example With @Auth and @RolesAllowed](https://howtodoinjava.com/dropwizard/dropwizard-basic-auth-security-example/) ([dropwizard-basic-auth](dropwizard-basic-auth))
 - [Dropwizard Could Not Resolve Type Id 'http' Error: Fix](https://howtodoinjava.com/dropwizard/solved-dropwizard-failed-parse-configuration-not-resolve-type-id-http-subtype/) ([dropwizard-config-parse-error](dropwizard-config-parse-error))
+- [Free-Threaded Python (No-GIL): Writing Thread-Safe Code](https://howtodoinjava.com/python/free-threaded-python-no-gil-thread-safe-code/) ([python-free-threaded](python-free-threaded))
