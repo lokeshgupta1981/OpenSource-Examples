@@ -1,4 +1,4 @@
-Source code for the article [Spring Boot and Vaadin CRUD Example](https://howtodoinjava.com/?p=46848)
+Source code for the article [Spring Boot and Vaadin CRUD Example](https://howtodoinjava.com/spring-boot/spring-boot-and-vaadin-crud-example/)
 
 Versions used: Java 21, Spring Boot 4.1.1, Vaadin 25.3.2, H2 (in-memory).
 

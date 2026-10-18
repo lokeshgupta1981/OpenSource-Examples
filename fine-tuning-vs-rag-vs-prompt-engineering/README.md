@@ -1,4 +1,4 @@
-Source code for the article https://howtodoinjava.com/ai/fine-tuning-vs-rag-vs-prompt-engineering/
+Source code for the article [Fine-Tuning vs RAG vs Prompt Engineering for LLM Apps](https://howtodoinjava.com/ai/fine-tuning-vs-rag-vs-prompt-engineering/)
 
 The Recipe Box assistant, used in the article to compare prompt engineering, RAG and
 fine-tuning.

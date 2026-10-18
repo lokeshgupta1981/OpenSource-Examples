@@ -1,4 +1,4 @@
-Source code for the article [Kafka MockConsumer and MockProducer Example (JUnit 6)](https://howtodoinjava.com/?p=38704)
+Source code for the article [Kafka MockConsumer and MockProducer Example (JUnit 6)](https://howtodoinjava.com/kafka/kafka-mockconsumer-and-mockproducer-example/)
 
 A book order service: `BookOrderPublisher` sends `BookOrderEvent` records to Kafka, and
 `BookOrderAggregator` reads them back and adds up the quantity per ISBN. The tests replace the real

@@ -1,4 +1,4 @@
-Source code for the article https://howtodoinjava.com/?p=44491
+Source code for the article [Run LLMs Locally for Java: Ollama vs Docker Model Runner vs LM Studio](https://howtodoinjava.com/ai/run-llms-locally/)
 
 A Recipe Box question sent from plain Java (JDK `java.net.http.HttpClient`, no framework) to a
 local model server's OpenAI-compatible `/v1/chat/completions` endpoint. The same class works with

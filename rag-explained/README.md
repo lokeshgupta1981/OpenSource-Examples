@@ -1,4 +1,4 @@
-Source code for the article https://howtodoinjava.com/?p=44492
+Source code for the article [RAG Explained: Retrieval Augmented Generation for Java](https://howtodoinjava.com/ai/rag-explained-java-developers/)
 
 A minimal retrieval augmented generation (RAG) pipeline in plain Java for a private Recipe Box:
 four recipe text files are split into chunks, embedded with the offline all-MiniLM-L6-v2 model
