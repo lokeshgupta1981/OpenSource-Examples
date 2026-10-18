@@ -1,0 +1,16 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are the Recipe Box assistant."
+    },
+    {
+      "role": "user",
+      "content": "Quick snack with bread and cheese?"
+    },
+    {
+      "role": "assistant",
+      "content": "Dish: Cheese toast\nTime: 8 min\nSteps: Butter bread; add cheese; toast"
+    }
+  ]
+}
