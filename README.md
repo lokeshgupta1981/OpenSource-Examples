@@ -22,6 +22,7 @@
 - [LLM Terms Every Java Developer Should Know](https://howtodoinjava.com/ai/llm-terms-for-java-developers/) ([llm-terms](llm-terms))
 - [Model Context Protocol (MCP) Explained for Java Developers](https://howtodoinjava.com/ai/model-context-protocol-mcp-java/) ([mcp-explained](mcp-explained))
 - [LLM Token Costs: Estimate and Reduce Them in Java Apps](https://howtodoinjava.com/ai/llm-token-costs-java/) ([llm-token-costs](llm-token-costs))
+- [How to Reduce Claude Code Costs Without Losing Quality](https://howtodoinjava.com/ai/reduce-claude-code-costs/) ([claude-code-costs](claude-code-costs))
 - [Best Machine Learning Libraries for Java in 2026](https://howtodoinjava.com/ai/java-machine-learning-libraries/) ([java-ml-libraries](java-ml-libraries))
 - [Dropwizard Tutorial: Hello World REST API Example](https://howtodoinjava.com/dropwizard/tutorial-and-hello-world-example/) ([dropwizard-hello-world](dropwizard-hello-world))
 - [Dropwizard Health Check: Configuration and Examples](https://howtodoinjava.com/dropwizard/health-check-configuration-example/) ([dropwizard-health-check](dropwizard-health-check))
