@@ -1,0 +1,45 @@
+diff --git a/src/main/java/com/howtodoinjava/orderdesk/order/OrderValidator.java b/src/main/java/com/howtodoinjava/orderdesk/order/OrderValidator.java
+index e346da2..96fc746 100644
+--- a/src/main/java/com/howtodoinjava/orderdesk/order/OrderValidator.java
++++ b/src/main/java/com/howtodoinjava/orderdesk/order/OrderValidator.java
+@@ -27,10 +27,13 @@ public class OrderValidator {
+     }
+ 
+     private void validateLine(OrderLine line) {
++        if (line == null) {
++            throw new ValidationException("order lines must not be null");
++        }
+         if (line.sku() == null || line.sku().isBlank()) {
+             throw new ValidationException("sku is required");
+         }
+-        if (line.quantity() == 0) {
++        if (line.quantity() <= 0) {
+             throw new ValidationException("quantity must be positive for " + line.sku());
+         }
+         if (line.unitPrice() == null || line.unitPrice().compareTo(BigDecimal.ZERO) < 0) {
+diff --git a/src/test/java/com/howtodoinjava/orderdesk/order/OrderValidatorTest.java b/src/test/java/com/howtodoinjava/orderdesk/order/OrderValidatorTest.java
+index ebc948c..5641462 100644
+--- a/src/test/java/com/howtodoinjava/orderdesk/order/OrderValidatorTest.java
++++ b/src/test/java/com/howtodoinjava/orderdesk/order/OrderValidatorTest.java
+@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+ import static org.junit.jupiter.api.Assertions.assertThrows;
+ 
+ import java.math.BigDecimal;
++import java.util.Arrays;
+ import java.util.List;
+ 
+ import org.junit.jupiter.api.Test;
+@@ -43,6 +44,13 @@ class OrderValidatorTest {
+                 requestWith(new OrderLine("BOOK", -3, BigDecimal.TEN))));
+     }
+ 
++    @Test
++    void rejectsNullLine() {
++        CreateOrderRequest request = new CreateOrderRequest("c-1", null,
++                Arrays.asList((OrderLine) null));
++        assertThrows(ValidationException.class, () -> validator.validate(request));
++    }
++
+     @Test
+     void rejectsNegativePrice() {
+         assertThrows(ValidationException.class, () -> validator.validate(

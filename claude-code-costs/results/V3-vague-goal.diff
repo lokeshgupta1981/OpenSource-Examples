@@ -1,0 +1,19 @@
+diff --git a/src/main/java/com/howtodoinjava/orderdesk/order/OrderValidator.java b/src/main/java/com/howtodoinjava/orderdesk/order/OrderValidator.java
+index e346da2..96fc746 100644
+--- a/src/main/java/com/howtodoinjava/orderdesk/order/OrderValidator.java
++++ b/src/main/java/com/howtodoinjava/orderdesk/order/OrderValidator.java
+@@ -27,10 +27,13 @@ public class OrderValidator {
+     }
+ 
+     private void validateLine(OrderLine line) {
++        if (line == null) {
++            throw new ValidationException("order lines must not be null");
++        }
+         if (line.sku() == null || line.sku().isBlank()) {
+             throw new ValidationException("sku is required");
+         }
+-        if (line.quantity() == 0) {
++        if (line.quantity() <= 0) {
+             throw new ValidationException("quantity must be positive for " + line.sku());
+         }
+         if (line.unitPrice() == null || line.unitPrice().compareTo(BigDecimal.ZERO) < 0) {

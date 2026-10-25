@@ -1,0 +1,1 @@
+Now read docs/api.md and tell me which documented endpoints are not implemented yet, and what each one would need.

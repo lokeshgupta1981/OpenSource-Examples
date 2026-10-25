@@ -1,0 +1,1 @@
+OrderValidator accepts order lines with a negative quantity, so OrderValidatorTest.rejectsNegativeQuantity fails. Make OrderValidator reject any quantity of zero or less with a ValidationException. Don't change the tests or any public method signature. Verify with mvn -q test -Dtest=OrderValidatorTest, then run mvn -q test once before you finish.

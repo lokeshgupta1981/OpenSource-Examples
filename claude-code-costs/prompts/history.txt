@@ -1,0 +1,1 @@
+Walk me through how an order is placed, priced and confirmed in this project. Read every class in the order, pricing, inventory and notification packages and their tests, and explain each step in detail.
